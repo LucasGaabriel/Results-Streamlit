@@ -8,6 +8,8 @@ authors = ["Lucas Gabriel <lucasgabriiel.oliveira@gmail.com>"]
 python = "^3.10"
 streamlit = "^1.32.2"
 pandas = "^2.2.1"
+numpy = "^1.26.4"
+matplotlib = "^3.8.3"
 
 [tool.poetry.dev-dependencies]
 
