@@ -1,0 +1,58 @@
+{
+    "Normal": {
+        "precision": 0.5312237468496219,
+        "recall": 0.6789549033643522,
+        "f1-score": 0.5960722702278083,
+        "support": 2794.0
+    },
+    "Degraded Outer Race": {
+        "precision": 0.46511627906976744,
+        "recall": 0.48,
+        "f1-score": 0.47244094488188976,
+        "support": 500.0
+    },
+    "Outer Race": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 68.0
+    },
+    "Degraded Inner Race": {
+        "precision": 0.291497975708502,
+        "recall": 0.12,
+        "f1-score": 0.17001180637544275,
+        "support": 600.0
+    },
+    "Inner Race": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 112.0
+    },
+    "Degraded Roller Race": {
+        "precision": 0.35658914728682173,
+        "recall": 0.35777777777777775,
+        "f1-score": 0.35718247365501943,
+        "support": 900.0
+    },
+    "Roller Race": {
+        "precision": 0.1906158357771261,
+        "recall": 0.10620915032679738,
+        "f1-score": 0.13641133263378805,
+        "support": 612.0
+    },
+    "accuracy": 0.4647332617257429,
+    "macro avg": {
+        "precision": 0.2621489978131199,
+        "recall": 0.2489916902098468,
+        "f1-score": 0.2474455468248498,
+        "support": 5586.0
+    },
+    "weighted avg": {
+        "precision": 0.4169858928950177,
+        "recall": 0.4647332617257429,
+        "f1-score": 0.4311853636133374,
+        "support": 5586.0
+    },
+    "balanced accuracy": 0.2489916902098468
+}
