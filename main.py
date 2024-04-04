@@ -8,13 +8,13 @@ st.write("""
 """)
 
 datasets = (
-    "CWRU_12000",
-    "CWRU_48000",
+    "CWRU 12000",
+    "CWRU 48000",
     "EAS",
     "IMS",
     "MAFAULDA",
-    "MFPT_48828",
-    "MFPT_97656",
+    "MFPT 48828",
+    "MFPT 97656",
     "PU",
     "UOC",
     "XJTU",
@@ -43,27 +43,29 @@ option_metric = st.radio(
 
 if option_datasets and option_bias and option_metric:
 
-    df = pd.DataFrame()
+    dataset = option_datasets.lower().replace(' ', '_')
+    bias = option_bias.lower()
     metric = "test_" + option_metric.lower().replace(' ', '_')
+    results = []
 
     # Machine Learning
-    json_path = ("./results/ml/" + option_bias.lower() + "/" + option_datasets + ".json")
+    json_path = ("./results/ml/" + bias + "/" + dataset + ".json")
     result = json.load(open(json_path))
     data = {'test_accuracy': result['accuracy'],
             'test_balanced_accuracy': result['balanced accuracy'],
             'test_f1_macro': result['macro avg']['f1-score']}
-    df.insert(0, "ml", pd.Series(data[metric]))
+    results.append(data[metric])
 
     # Deep Learning without interpolation
-    csv_path = ("./results/deep/default/" + option_bias.lower() + "/results_" +
-                option_datasets.lower() + ".csv")
+    csv_path = ("./results/deep/default/" + bias + "/results_" + dataset + ".csv")
     df_dl = pd.read_csv(csv_path)
-    df.insert(1, "dl_default", pd.Series(df_dl[metric].mean()))
-    # df = pd.concat([df, pd.Series(df_dl[metric].mean())], ignore_index=True)
+    results.append(df_dl[metric].mean())
 
     # Deep Learning with interpolation
-    csv_path = ("./results/deep/interpolation/results_" + option_datasets.lower() + ".csv")
+    csv_path = ("./results/deep/interpolation/results_" + dataset + ".csv")
     df_dl = pd.read_csv(csv_path)
-    df.insert(2, "dl_interpolation", pd.Series(df_dl[metric].mean()))
+    results.append(df_dl[metric].mean())
 
+    index = ["(1) RF", "(2) CNN Default", "(3) CNN Interpolated"]
+    df = pd.DataFrame(results, index=index, columns=["Results"])
     st.bar_chart(df)
