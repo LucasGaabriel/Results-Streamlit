@@ -1,0 +1,46 @@
+{
+    "Healthy": {
+        "precision": 0.8,
+        "recall": 0.8461538461538461,
+        "f1-score": 0.822429906542056,
+        "support": 104.0
+    },
+    "Missing Tooth": {
+        "precision": 0.7155963302752294,
+        "recall": 0.75,
+        "f1-score": 0.7323943661971831,
+        "support": 104.0
+    },
+    "Root Crack": {
+        "precision": 0.9340659340659341,
+        "recall": 0.8173076923076923,
+        "f1-score": 0.8717948717948718,
+        "support": 104.0
+    },
+    "Spalling": {
+        "precision": 1.0,
+        "recall": 0.9903846153846154,
+        "f1-score": 0.9951690821256038,
+        "support": 104.0
+    },
+    "Chipping Tip": {
+        "precision": 0.9024856596558317,
+        "recall": 0.9076923076923077,
+        "f1-score": 0.9050814956855225,
+        "support": 520.0
+    },
+    "accuracy": 0.8824786324786325,
+    "macro avg": {
+        "precision": 0.870429584799399,
+        "recall": 0.8623076923076922,
+        "f1-score": 0.8653739444690475,
+        "support": 936.0
+    },
+    "weighted avg": {
+        "precision": 0.8846767291800358,
+        "recall": 0.8824786324786325,
+        "f1-score": 0.8830217450097031,
+        "support": 936.0
+    },
+    "balanced accuracy": 0.8623076923076922
+}

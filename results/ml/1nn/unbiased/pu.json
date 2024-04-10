@@ -1,0 +1,40 @@
+{
+    "Normal": {
+        "precision": 0.6902743142144638,
+        "recall": 0.721584984358707,
+        "f1-score": 0.7055824624012236,
+        "support": 1918.0
+    },
+    "Outer Ring Fault": {
+        "precision": 0.6068078263200214,
+        "recall": 0.5940697979532931,
+        "f1-score": 0.6003712543092018,
+        "support": 3811.0
+    },
+    "Inner Ring Fault": {
+        "precision": 0.5404980340760157,
+        "recall": 0.5891428571428572,
+        "f1-score": 0.5637730690362269,
+        "support": 3500.0
+    },
+    "Outer And Inner Ring Fault": {
+        "precision": 0.726984126984127,
+        "recall": 0.4810924369747899,
+        "f1-score": 0.5790139064475348,
+        "support": 952.0
+    },
+    "accuracy": 0.6058343974069345,
+    "macro avg": {
+        "precision": 0.641141075398657,
+        "recall": 0.5964725191074117,
+        "f1-score": 0.6121851730485468,
+        "support": 10181.0
+    },
+    "weighted avg": {
+        "precision": 0.6109736537593445,
+        "recall": 0.6058343974069345,
+        "f1-score": 0.6056132986565919,
+        "support": 10181.0
+    },
+    "balanced accuracy": 0.5964725191074117
+}
