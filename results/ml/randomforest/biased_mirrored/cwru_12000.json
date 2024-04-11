@@ -1,0 +1,40 @@
+{
+    "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 280.0
+    },
+    "Inner Race": {
+        "precision": 0.9986091794158554,
+        "recall": 0.9972222222222222,
+        "f1-score": 0.9979152189020153,
+        "support": 720.0
+    },
+    "Outer Race": {
+        "precision": 0.9917127071823204,
+        "recall": 0.9972222222222222,
+        "f1-score": 0.9944598337950139,
+        "support": 720.0
+    },
+    "Ball": {
+        "precision": 0.99860529986053,
+        "recall": 0.9944444444444445,
+        "f1-score": 0.9965205288796103,
+        "support": 720.0
+    },
+    "accuracy": 0.9967213114754099,
+    "macro avg": {
+        "precision": 0.9972317966146765,
+        "recall": 0.9972222222222222,
+        "f1-score": 0.9972238953941598,
+        "support": 2440.0
+    },
+    "weighted avg": {
+        "precision": 0.9967326123976509,
+        "recall": 0.9967213114754099,
+        "f1-score": 0.9967232863668772,
+        "support": 2440.0
+    },
+    "balanced accuracy": 0.9972222222222222
+}

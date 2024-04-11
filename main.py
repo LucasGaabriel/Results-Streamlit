@@ -2,6 +2,7 @@ import json
 
 import pandas as pd
 import streamlit as st
+import altair as alt
 
 st.write("""
 # Experiments Results
@@ -85,5 +86,15 @@ if option_datasets and option_bias and option_metric:
     indexes.append("(4) CNN Interpolated")
     results.append(df_dl[metric].mean())
 
-    df = pd.DataFrame(data=results, index=indexes, columns=["Results"])
-    st.bar_chart(df)
+    df = pd.DataFrame({
+        'Classifier': indexes,
+        'Metric': results
+    })
+
+    # Interactive bar chart with altair
+    chart = alt.Chart(df).mark_bar().encode(
+        x='Classifier',
+        y=alt.Y('Metric', scale=alt.Scale(domain=[0, 1])),
+    ).interactive()
+
+    st.altair_chart(chart, use_container_width=True)

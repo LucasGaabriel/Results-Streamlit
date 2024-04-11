@@ -1,0 +1,76 @@
+{
+    "Normal": {
+        "precision": 0.8018372703412073,
+        "recall": 0.41564625850340137,
+        "f1-score": 0.5474910394265233,
+        "support": 1470.0
+    },
+    "Horizontal Misalignment": {
+        "precision": 0.6838279830405815,
+        "recall": 0.5730964467005076,
+        "f1-score": 0.6235846451256559,
+        "support": 5910.0
+    },
+    "Vertical Misalignment": {
+        "precision": 0.6115366866635902,
+        "recall": 0.7337763012181617,
+        "f1-score": 0.667102944877926,
+        "support": 9030.0
+    },
+    "Imbalance": {
+        "precision": 0.657306247866166,
+        "recall": 0.7708708708708709,
+        "f1-score": 0.7095733898461255,
+        "support": 9990.0
+    },
+    "Underhang Cage": {
+        "precision": 0.7292887029288703,
+        "recall": 0.6180851063829788,
+        "f1-score": 0.6690978886756238,
+        "support": 5640.0
+    },
+    "Underhang Outer Cage": {
+        "precision": 0.7289021657953697,
+        "recall": 0.7072463768115942,
+        "f1-score": 0.7179109966899595,
+        "support": 5520.0
+    },
+    "Underhang Ball": {
+        "precision": 0.8623051892447336,
+        "recall": 0.9023297491039427,
+        "f1-score": 0.8818635607321131,
+        "support": 5580.0
+    },
+    "Overhang Cage": {
+        "precision": 0.7433817250213492,
+        "recall": 0.6173758865248227,
+        "f1-score": 0.6745447500968617,
+        "support": 5640.0
+    },
+    "Overhang Outer Race": {
+        "precision": 0.7033554572271387,
+        "recall": 0.6764184397163121,
+        "f1-score": 0.6896240057845264,
+        "support": 5640.0
+    },
+    "Overhang Ball": {
+        "precision": 0.8155943554173642,
+        "recall": 0.829683698296837,
+        "f1-score": 0.8225786997949583,
+        "support": 4110.0
+    },
+    "accuracy": 0.7083034341363403,
+    "macro avg": {
+        "precision": 0.7337335783546372,
+        "recall": 0.6844529134129429,
+        "f1-score": 0.7003371921050274,
+        "support": 58530.0
+    },
+    "weighted avg": {
+        "precision": 0.7136318395398659,
+        "recall": 0.7083034341363403,
+        "f1-score": 0.7062167185978588,
+        "support": 58530.0
+    },
+    "balanced accuracy": 0.6844529134129429
+}
