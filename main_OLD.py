@@ -1,6 +1,8 @@
-import altair as alt
+import json
+
 import pandas as pd
 import streamlit as st
+import altair as alt
 
 st.write("""
 # Experiments Results
@@ -38,6 +40,16 @@ option_metric = st.radio(
     horizontal=True
 )
 
+
+def json_data(json, metric):
+    if metric == 'test_accuracy':
+        return json['accuracy']
+    elif metric == 'test_balanced_accuracy':
+        return json['balanced accuracy']
+    elif metric == 'test_f1_macro':
+        return json['macro avg']['f1-score']
+
+
 if option_datasets and option_bias and option_metric:
     dataset = option_datasets.lower().replace(' ', '_')
     bias = option_bias.lower().replace(' ', '_')
@@ -45,52 +57,42 @@ if option_datasets and option_bias and option_metric:
 
     indexes = []
     results = []
-    std_dv = []
 
     # 1NN
-    csv_path = ("./results/ml/1nn/" + bias + "/" + dataset + ".csv")
-    df_dl = pd.read_csv(csv_path)
+    json_path = ("./results/ml/1nn/" + bias + "/" + dataset + ".json")
+    result = json.load(open(json_path))
+    data = json_data(result, metric)
     indexes.append("(1) 1NN")
-    results.append(df_dl[metric].mean())
-    std_dv.append(df_dl[metric].std())
+    results.append(data)
 
     # Random Forest
-    csv_path = ("./results/ml/randomforest/" + bias + "/" + dataset + ".csv")
-    df_dl = pd.read_csv(csv_path)
+    json_path = ("./results/ml/randomforest/" + bias + "/" + dataset + ".json")
+    result = json.load(open(json_path))
+    data = json_data(result, metric)
     indexes.append("(2) RF")
-    results.append(df_dl[metric].mean())
-    std_dv.append(df_dl[metric].std())
+    results.append(data)
 
     # Deep Learning without interpolation
     csv_path = ("./results/deep/default/" + bias + "/results_" + dataset + ".csv")
     df_dl = pd.read_csv(csv_path)
     indexes.append("(3) CNN Default")
     results.append(df_dl[metric].mean())
-    std_dv.append(df_dl[metric].std())
 
-    try:
-        # Deep Learning with interpolation
-        csv_path = ("./results/deep/interpolation/results_" + dataset + ".csv")
-        df_dl = pd.read_csv(csv_path)
-        indexes.append("(4) CNN Interpolated")
-        results.append(df_dl[metric].mean())
-        std_dv.append(df_dl[metric].std())
-    except FileNotFoundError:
-        indexes.append("(4) CNN Interpolated")
-        results.append(0)
-        std_dv.append(0)
+    # Deep Learning with interpolation
+    csv_path = ("./results/deep/interpolation/results_" + dataset + ".csv")
+    df_dl = pd.read_csv(csv_path)
+    indexes.append("(4) CNN Interpolated")
+    results.append(df_dl[metric].mean())
 
     df = pd.DataFrame({
         'Classifier': indexes,
-        'Metric': results,
-        'Standard Deviation': std_dv
+        'Metric': results
     })
 
     # Interactive bar chart with altair
     chart = alt.Chart(df).mark_bar().encode(
         x='Classifier',
         y=alt.Y('Metric', scale=alt.Scale(domain=[0, 1])),
-        tooltip=['Classifier', 'Metric', 'Standard Deviation']
     ).interactive()
 
     st.altair_chart(chart, use_container_width=True)
